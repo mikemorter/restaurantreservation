@@ -71,7 +71,9 @@ function ReservationList({ reservations, cancelHandler }) {
     return (
       <div>
         <br />
-        <h3 className="alert alert-success">No reservations found</h3>
+        <h3 className="alert alert-success" style={{ width: "50%" }}>
+          No reservations found
+        </h3>
         <br />
       </div>
     );
