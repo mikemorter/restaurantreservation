@@ -14,7 +14,7 @@ function EditReservation() {
     reservation_time: "",
     people: "",
   };
-  const [updatedResData, setUpadtedResData] = useState(initialFormState);
+  const [updatedResData, setUpdatedResData] = useState(initialFormState);
   const { reservation_id } = useParams();
   const [formErrors, setFormErrors] = useState(null);
   const history = useHistory();
@@ -25,14 +25,14 @@ function EditReservation() {
     const abortController = new AbortController();
     setFormErrors(null);
     reservationById(reservation_id, abortController.signal)
-      .then(setUpadtedResData)
+      .then(setUpdatedResData)
       .catch(setFormErrors);
     return () => abortController.abort();
   }
 
   const changeHandler = (e) => {
     e.preventDefault();
-    setUpadtedResData({ ...updatedResData, [e.target.name]: e.target.value });
+    setUpdatedResData({ ...updatedResData, [e.target.name]: e.target.value });
   };
 
   const submitHandler = async (e) => {

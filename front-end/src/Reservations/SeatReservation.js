@@ -50,24 +50,26 @@ function SeatReservation() {
   const freeTables = tables.filter((table) => table.reservation_id === null);
 
   const reservationCard = (
-    <div className="card" key={reservation.reservation_id}>
+    <div
+      className="col-lg-4 col-xl-3 bg-secondary m-3 card text-white"
+      key={reservation.reservation_id}
+    >
       <div className="card-header">
-        <h2>{reservation.reservation_date}</h2>
-        <h2>
+        <h3>Date: {reservation.reservation_date}</h3>
+        <h4>
+          Name:
           {reservation.last_name} {reservation.first_name}
-        </h2>
-        <h2>{reservation.reservation_time}</h2>
-      </div>
-      <div className="card-body">
-        <p>{reservation.mobile_number}</p>
-        <p>{reservation.people}</p>
+        </h4>
+        <h5>Time: {reservation.reservation_time}</h5>
+        <h5>Number: {reservation.mobile_number}</h5>
+        <h5>Size: {reservation.people}</h5>
       </div>
     </div>
   );
 
   return (
     <div>
-      <div>Seat Reservation</div>
+      <h2>Seat Reservation</h2>
       {errors && <ErrorAlert error={errors} />}
       <div>{reservationCard}</div>
       <div>
@@ -87,8 +89,14 @@ function SeatReservation() {
           </select>
         </form>
       </div>
-      <button onClick={() => history.goBack()}>Cancel</button>
-      <button onClick={submitHandler} type="submit">
+      <button className="btn btn-secondary" onClick={() => history.goBack()}>
+        Cancel
+      </button>
+      <button
+        onClick={submitHandler}
+        type="submit"
+        className="btn btn-secondary"
+      >
         Seat
       </button>
     </div>

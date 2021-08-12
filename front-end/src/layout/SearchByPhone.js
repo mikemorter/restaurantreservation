@@ -37,23 +37,31 @@ function SearchByPhone() {
       <div>
         <h2> Search</h2>
       </div>
-      <div>
+      <div className="d-md-flex mb-3">
         <form>
-          <label>Search for reservation by phone number</label>
-          <input
-            id="searchNumber"
-            name="mobile_number"
-            type="tel"
-            onChange={changeHandler}
-            value={searchNumber.mobile_number}
-            placeholder="Enter a customer's phone number"
-            style={{ width: "300px" }}
-            required
-          />
+          <h4 className="mb-0">Search for reservation by phone number</h4>
+          <div>
+            <div>
+              <input
+                id="searchNumber"
+                name="mobile_number"
+                type="tel"
+                onChange={changeHandler}
+                value={searchNumber.mobile_number}
+                placeholder="Enter a customer's phone number"
+                style={{ width: "300px" }}
+                required
+              />
+            </div>
+          </div>
         </form>
       </div>
       <div>
-        <button onClick={searchHandler} type="submit">
+        <button
+          onClick={searchHandler}
+          type="submit"
+          className="btn btn-secondary"
+        >
           Find
         </button>
       </div>

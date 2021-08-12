@@ -5,6 +5,9 @@ function ReservationForm({ changeHandler, submitHandler, reservationData }) {
   const history = useHistory();
   return (
     <div>
+      <div>
+        <h2> New Reservation</h2>
+      </div>
       <form>
         <div>
           <label htmlFor="first_name">First Name</label>
@@ -15,6 +18,7 @@ function ReservationForm({ changeHandler, submitHandler, reservationData }) {
             name="first_name"
             onChange={changeHandler}
             value={reservationData.first_name}
+            style={{ width: "50%" }}
             required
           />
         </div>
@@ -27,6 +31,7 @@ function ReservationForm({ changeHandler, submitHandler, reservationData }) {
             name="last_name"
             onChange={changeHandler}
             value={reservationData.last_name}
+            style={{ width: "50%" }}
             required
           />
         </div>
@@ -40,6 +45,7 @@ function ReservationForm({ changeHandler, submitHandler, reservationData }) {
             name="mobile_number"
             onChange={changeHandler}
             value={reservationData.mobile_number}
+            style={{ width: "50%" }}
             required
           />
         </div>
@@ -53,6 +59,7 @@ function ReservationForm({ changeHandler, submitHandler, reservationData }) {
             name="reservation_date"
             onChange={changeHandler}
             value={reservationData.reservation_date}
+            style={{ width: "50%" }}
             required
           />
         </div>
@@ -66,6 +73,7 @@ function ReservationForm({ changeHandler, submitHandler, reservationData }) {
             name="reservation_time"
             onChange={changeHandler}
             value={reservationData.reservation_time}
+            style={{ width: "50%" }}
             required
           />
         </div>
@@ -79,13 +87,22 @@ function ReservationForm({ changeHandler, submitHandler, reservationData }) {
             name="people"
             onChange={changeHandler}
             value={reservationData.people}
+            style={{ width: "50%" }}
             required
           />
         </div>
-        <button onClick={submitHandler} type="submit">
+        <button
+          onClick={submitHandler}
+          type="submit"
+          className="btn btn-secondary"
+        >
           Submit
         </button>
-        <button onClick={() => history.push("/dashboard")} type="button">
+        <button
+          onClick={() => history.push("/dashboard")}
+          type="button"
+          className="btn btn-secondary"
+        >
           Cancel
         </button>
       </form>

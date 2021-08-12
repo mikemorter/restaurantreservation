@@ -95,16 +95,19 @@ function Dashboard({ date, setDate }) {
       <div>
         <Link
           to={`/dashboard?date=${previous(date)}`}
-          className="btn btn-primary m-1"
+          className="btn btn-secondary m-1"
         >
           Previous
         </Link>{" "}
-        <Link to={`/dashboard?date=${today()}`} className="btn btn-primary m-1">
+        <Link
+          to={`/dashboard?date=${today()}`}
+          className="btn btn-secondary m-1"
+        >
           Today
         </Link>{" "}
         <Link
           to={`/dashboard?date=${next(date)}`}
-          className="btn btn-primary m-1"
+          className="btn btn-secondary m-1"
         >
           Next
         </Link>

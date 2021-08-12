@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+//import { updateReservationStatus } from "../utils/api";
 
 function ReservationList({ reservations, cancelHandler }) {
   const list = reservations.map((reservation) => {
@@ -6,7 +7,7 @@ function ReservationList({ reservations, cancelHandler }) {
       return null;
     return (
       <div
-        className="col-lg-4 col-xl-3 bg-dark m-3 card text-white"
+        className="col-lg-4 col-xl-3 bg-secondary m-3 card text-white"
         key={reservation.reservation_id}
       >
         <h3>Date: {reservation.reservation_date}</h3>
@@ -22,31 +23,45 @@ function ReservationList({ reservations, cancelHandler }) {
           Status: {reservation.status}
         </h6>
         <div>
-          {reservation.status === "booked" && (
-            <Link
-              to={`/reservations/${reservation.reservation_id}/seat`}
-              className="btn btn-success"
+          {reservation.status === "Booked" ? (
+            <div>
+              <Link
+                to={`/reservations/${reservation.reservation_id}/seat`}
+                className="btn btn-success"
+              >
+                Seat
+              </Link>{" "}
+              &nbsp;
+              <Link
+                to={`/reservations/${reservation.reservation_id}/edit`}
+                className="btn btn-warning"
+              >
+                Edit
+              </Link>{" "}
+              &nbsp;
+              <button
+                data-reservation-id-cancel={reservation.reservation_id}
+                onClick={() => {
+                  cancelHandler(reservation.reservation_id);
+                }}
+                value={reservation.reservation_id}
+                className="btn btn-danger"
+              >
+                Cancel
+              </button>
+            </div>
+          ) : (
+            <button
+              data-reservation-id-cancel={reservation.reservation_id}
+              onClick={() => {
+                cancelHandler(reservation.reservation_id);
+              }}
+              value={reservation.reservation_id}
+              className="btn btn-danger"
             >
-              Seat
-            </Link>
+              Cancel
+            </button>
           )}
-          {"   "}
-          {reservation.status === "booked" && (
-            <Link
-              to={`/reservations/${reservation.reservation_id}/edit`}
-              className="btn btn-success"
-            >
-              Edit
-            </Link>
-          )}
-          {"   "}
-          <button
-            data-reservation-id-cancel={reservation.reservation_id}
-            onClick={() => cancelHandler(reservation.reservation_id)}
-            className="btn btn-danger"
-          >
-            Cancel
-          </button>
         </div>
       </div>
     );
@@ -56,7 +71,7 @@ function ReservationList({ reservations, cancelHandler }) {
     return (
       <div>
         <br />
-        <h3>No reservations found</h3>
+        <h3 className="alert alert-success">No reservations found</h3>
         <br />
       </div>
     );
