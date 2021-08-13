@@ -6,7 +6,7 @@ This application was made for my capstone project for Thinkful Flex Software Eng
 
 ## Live Application
 
-Deployed application [here](starter-restaurant-reservation-topaz.vercel.app).
+Deployed application [here](https://starter-restaurant-reservation-eyak91zpj-mikemorter.vercel.app/dashboard).
 
 ## Technology Used
 
