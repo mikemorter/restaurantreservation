@@ -4,8 +4,6 @@
 
 This application was made for my capstone project for Thinkful Flex Software Engineering course. It is a reservation system and table manager to be used to track reservations as well as seat reservations to tables while updating their progress. The entire application was made to meet various user stories that the Thinkful course defined. The project's base code and assignments can be viewed on its GitHub repository [here](https://github.com/Thinkful-Ed/starter-restaurant-reservation).
 
-## Live Application
-
 ## Technology Used
 
 ### Front-end
@@ -75,3 +73,7 @@ The table below describes the existing files in the `./front-end` folder:
 1. Run `npm run start:dev` to start your server in development mode.
 
 If you have trouble getting the server to run, reach out for assistance.
+
+## Live Application
+
+Deployed application [here](https://starter-restaurant-reservation-eyak91zpj-mikemorter.vercel.app/dashboard).
