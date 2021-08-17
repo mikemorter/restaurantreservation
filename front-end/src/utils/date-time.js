@@ -56,13 +56,20 @@ export function today() {
  * @returns {*}
  *  the date one day prior to currentDate, formatted as YYYY-MM-DD
  */
+// export function previous(currentDate) {
+//   let [ year, month, day ] = currentDate.split("-");
+//   month -= 1;
+//   const date = new Date(year, month, day);
+//   date.setMonth(date.getMonth());
+//   date.setDate(date.getDate() - 1);
+//   return asDateString(date);
+// }
+
 export function previous(currentDate) {
-  let [ year, month, day ] = currentDate.split("-");
-  month -= 1;
-  const date = new Date(year, month, day);
-  date.setMonth(date.getMonth());
-  date.setDate(date.getDate() - 1);
-  return asDateString(date);
+  const date = new Date(currentDate + "T00:00:00");
+  const next_date = new Date(date.getTime() - 24 * 60 * 60 * 1000);
+  console.log(currentDate, date, next_date);
+  return asDateString(next_date);
 }
 
 /**
@@ -72,11 +79,18 @@ export function previous(currentDate) {
  * @returns {*}
  *  the date one day after currentDate, formatted as YYYY-MM-DD
  */
+// export function next(currentDate) {
+//   let [year, month, day] = currentDate.split("-");
+//   month -= 1;
+//   const date = new Date(year, month, day);
+//   date.setMonth(date.getMonth());
+//   date.setDate(date.getDate() + 1);
+//   return asDateString(date);
+// }
+
 export function next(currentDate) {
-  let [ year, month, day ] = currentDate.split("-");
-  month -= 1;
-  const date = new Date(year, month, day);
-  date.setMonth(date.getMonth());
-  date.setDate(date.getDate() + 1);
-  return asDateString(date);
+  const date = new Date(currentDate + "T00:00:00");
+  const next_date = new Date(date.getTime() + 24 * 60 * 60 * 1000);
+  console.log(currentDate, date, next_date);
+  return asDateString(next_date);
 }
